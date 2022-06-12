@@ -1,0 +1,11 @@
+.filter__section {
+	display: flex;
+}
+  
+.form__control {
+	display: block;
+	width: 25%;
+	padding: .375rem .75rem;
+	border: 1px solid #ced4da;
+	box-sizing: border-box;
+}

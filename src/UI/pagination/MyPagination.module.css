@@ -1,0 +1,19 @@
+.page_wrapper{
+	margin-top: 30px;
+	display: flex;
+}
+
+.page{
+	margin: 0 5px;
+	padding: 10px;
+	border: 1px solid lightskyblue;
+	cursor: pointer;
+}
+
+.page_current{
+	margin: 0 5px;
+	padding: 10px;
+	cursor: pointer;
+	border: 2px solid lightskyblue;
+	font-weight: bold;
+}
