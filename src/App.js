@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import './App.css';
+import MyFilter from './UI/filter/MyFilter';
 import TableItem from './components/TableItem';
 import MyInput from './UI/input/MyInput';
 import MyPagination from './UI/pagination/MyPagination';
@@ -52,8 +53,12 @@ function App() {
   // }, [searchQuery,filter, sortedItems])
 
   const sortedAndSearched = useMemo(() => {
-    return sortedItems.filter(item => item.distance.includes(searchQuery))
-  }, [searchQuery,filter, sortedItems])
+    if(filter){
+      return sortedItems.filter(item => item[filter].toLowerCase().includes(searchQuery))
+    }else{
+      return sortedItems
+    }
+  }, [searchQuery, sortedItems])
 
   //Текущие элементы, отображаемые на данной странице
   const currentItems = sortedAndSearched.slice(firstItemsPage, lastItemsPage)
@@ -63,9 +68,12 @@ function App() {
     setSelectedSort(sort)
   }
 
-  const filterItems = (filt) => {
-    setFilter(filt)
+  const filtItems = (value) => {
+    setFilter(value)
+    console.log(value);
   }
+
+  
 
   return (
     <div className="App">
@@ -76,16 +84,16 @@ function App() {
           placeholder="Поиск..."
         />
 
-        {/* <MyFilter
+        <MyFilter
           value={filter}
-          onChange={filterItems}
+          onChange={filtItems}
           defaultValue="Выбрать..."
           options = {[
             {value: 'name', name: 'Название'},
             {value: 'amount', name: 'Количество'},
             {value: 'distance', name: 'Расстояние'}
           ]}
-        /> */}
+        />
 
         <hr/>
 
