@@ -58,7 +58,7 @@ function App() {
     }else{
       return sortedItems
     }
-  }, [searchQuery, sortedItems])
+  }, [searchQuery, filter, sortedItems])
 
   //Текущие элементы, отображаемые на данной странице
   const currentItems = sortedAndSearched.slice(firstItemsPage, lastItemsPage)
@@ -87,7 +87,7 @@ function App() {
         <MyFilter
           value={filter}
           onChange={filtItems}
-          defaultValue="Выбрать..."
+          defaultValue="Фильтрация по..."
           options = {[
             {value: 'name', name: 'Название'},
             {value: 'amount', name: 'Количество'},
@@ -129,7 +129,7 @@ function App() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           itemsPerPage={itemsPerPage}
-          totalItems={items.length}
+          totalItems={sortedAndSearched.length}
         />
     </div>
   );

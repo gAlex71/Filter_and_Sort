@@ -5,7 +5,7 @@ const MyPagination = ({itemsPerPage, totalItems, currentPage, setCurrentPage}) =
 
     let pagesArray = []
     for (let i = 0; i < Math.ceil(totalItems / itemsPerPage); i++) {
-        pagesArray.push(i + 1)
+      pagesArray.push(i + 1)
     }
 
     return(
