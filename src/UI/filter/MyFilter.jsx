@@ -10,6 +10,7 @@ const MyFilter = ({options, defaultValue, value, onChange}) => {
                 className={classes.form__control}
             >
               <option disabled value="">{defaultValue}</option>
+              {/* Проходимся по массиву опций */}
               {options.map(option =>
                 <option key={option.value} value={option.value}>
                     {option.name}

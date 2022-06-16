@@ -47,11 +47,7 @@ function App() {
     }
   }, [selectedSort, items])
 
-  //Отсортированый и отфильтрованный массив
-  // const sortedAndSearched = useMemo(() => {
-  //   return sortedItems.filter(item => item.name.toLowerCase().includes(searchQuery))
-  // }, [searchQuery,filter, sortedItems])
-
+  //Отсортированный и отфильтрованный массив
   const sortedAndSearched = useMemo(() => {
     if(filter){
       return sortedItems.filter(item => item[filter].toLowerCase().includes(searchQuery))
@@ -68,9 +64,9 @@ function App() {
     setSelectedSort(sort)
   }
 
+  //Выбор фильтрации
   const filtItems = (value) => {
     setFilter(value)
-    console.log(value);
   }
 
   
@@ -87,7 +83,7 @@ function App() {
         <MyFilter
           value={filter}
           onChange={filtItems}
-          defaultValue="Фильтрация по..."
+          defaultValue="Фильтрация"
           options = {[
             {value: 'name', name: 'Название'},
             {value: 'amount', name: 'Количество'},
@@ -123,7 +119,7 @@ function App() {
               <TableItem item={item} key={item.id}/>
             )}
 	        </tbody>
-        </table>
+      </table>
         
         <MyPagination
           currentPage={currentPage}

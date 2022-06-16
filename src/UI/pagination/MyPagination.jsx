@@ -10,6 +10,7 @@ const MyPagination = ({itemsPerPage, totalItems, currentPage, setCurrentPage}) =
 
     return(
         <div className={classes.page_wrapper}>
+          {/* Отрисовываем массив чисел, и делаем их функциональными */}
           {pagesArray.map(p =>
             <span
               onClick={() => setCurrentPage(p)}
